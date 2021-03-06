@@ -12,12 +12,18 @@ using Sitecore.Data.Fields;
 using System.Runtime.Serialization.Formatters.Binary;
 using Sitecore.Resources.Media;
 using Sitecore;
+using Sitecore.SecurityModel;
 
 namespace SC2021KF.Feature.MediaHandler.Pipelines
 {
     public class MediaWebPHandler
     {
         private readonly string convertwebp = "convertwebp";
+
+        public void EndUpLoad()
+        {
+
+        }
         public void Process(UploadArgs args)
         {
             Database db = Sitecore.Context.ContentDatabase;
@@ -46,7 +52,7 @@ namespace SC2021KF.Feature.MediaHandler.Pipelines
                 Item item = db.GetItem(args.Folder);
                 //kutsutaan teemun koodia että saadaan webP muotoon itemi
                 var webPMediaConverted = WebPConverter.ConvertToWebP(webPMedia);
-                Stream stream = new MemoryStream(webPMediaConverted);
+                MemoryStream stream = new MemoryStream(webPMediaConverted);
                 var index = args.Files[0].FileName.IndexOf('.');
                 var filePathName = args.Files[0].FileName.Substring(0, index);
                 filePathName.Replace("_", "");
@@ -56,14 +62,15 @@ namespace SC2021KF.Feature.MediaHandler.Pipelines
                     Destination = item.Paths.Path + "/" + filePathName,
                     Database = db
                 };
-                MediaManager.Creator.CreateFromStream(stream, "jabadadoo", options);
+                using (new SecurityDisabler())
+                    MediaManager.Creator.CreateFromStream(stream, filePathName + ".webp", options);
 
                 //if (!args.CloseDialogOnEnd)
                 //    return;
                 string parameter = args.Parameters["message"];
                 string fileName = HttpUtility.UrlEncode(args.Properties["filename"] as string ?? string.Empty);
-                args.UiResponseHandlerEx.UploadDone(fileName, parameter);
-
+                //args.UiResponseHandlerEx.UploadDone(fileName, parameter);
+                
                 args.AbortPipeline();
 
                 if (!args.CloseDialogOnEnd)
