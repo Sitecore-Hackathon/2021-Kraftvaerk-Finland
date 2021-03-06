@@ -47,22 +47,27 @@ namespace SC2021KF.Feature.MediaHandler.Pipelines
                 //kutsutaan teemun koodia että saadaan webP muotoon itemi
                 var webPMediaConverted = WebPConverter.ConvertToWebP(webPMedia);
                 Stream stream = new MemoryStream(webPMediaConverted);
+                var index = args.Files[0].FileName.IndexOf('.');
+                var filePathName = args.Files[0].FileName.Substring(0, index);
+                filePathName.Replace("_", "");
                 var options = new MediaCreatorOptions
                 {
                     IncludeExtensionInItemName = false,
-                    Destination = item.Paths.Path + "/" + args.Files[0].FileName,
+                    Destination = item.Paths.Path + "/" + filePathName,
                     Database = db
                 };
-                MediaManager.Creator.CreateFromStream(stream, "jabadadoo.webp", options);
+                MediaManager.Creator.CreateFromStream(stream, "jabadadoo", options);
 
-                if (!args.CloseDialogOnEnd)
-                    return;
+                //if (!args.CloseDialogOnEnd)
+                //    return;
                 string parameter = args.Parameters["message"];
                 string fileName = HttpUtility.UrlEncode(args.Properties["filename"] as string ?? string.Empty);
                 args.UiResponseHandlerEx.UploadDone(fileName, parameter);
 
                 args.AbortPipeline();
 
+                if (!args.CloseDialogOnEnd)
+                    return;
             }
             //Database db = Sitecore.Context.ContentDatabase;
             //Item webPMediaTemplate = db.GetItem("/sitecore/templates/jotain/jotain");
