@@ -229,9 +229,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\MediaHandler.cs" />
+    <Compile Include="Pipelines\MediaWebPHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\MediaWebPHandler.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
