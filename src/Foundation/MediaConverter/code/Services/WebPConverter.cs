@@ -12,7 +12,7 @@ namespace SC2021KF.Foundation.MediaConverter.Services
         /// </summary>
         /// <param name="fileBytes"></param>
         /// <param name="filePath"></param>
-        public static byte[] ConvertToWebP(byte[] fileBytes)
+        public static byte[] Convert(byte[] fileBytes)
         {
             try
             {
