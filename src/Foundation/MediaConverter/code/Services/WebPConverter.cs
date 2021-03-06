@@ -21,8 +21,7 @@ namespace SC2021KF.Foundation.MediaConverter.Services
                     using (ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
                     {
                         imageFactory.Load(fileBytes)
-                                    .Format(new WebPFormat())
-                                    .Quality(100)
+                                    .Format(new WebPFormat() { Quality = 70 })
                                     .Save(ms);
                     }
                     return ms.ToArray();
