@@ -12,25 +12,27 @@ namespace SC2021KF.Foundation.MediaConverter.Services
         /// </summary>
         /// <param name="fileBytes"></param>
         /// <param name="filePath"></param>
-        public static void ConvertToWebP(byte[] fileBytes, string filePath)
+        public static byte[] ConvertToWebP(byte[] fileBytes)
         {
             try
             {
-                using (Stream fs = new FileStream(filePath, FileMode.Create))
+                using (MemoryStream ms = new MemoryStream())
                 {
                     using (ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
                     {
                         imageFactory.Load(fileBytes)
                                     .Format(new WebPFormat())
                                     .Quality(100)
-                                    .Save(fs);
+                                    .Save(ms);
                     }
+                    return ms.ToArray();
                 }
             }
             catch (Exception e)
             {
-                //Console.WriteLine(e.Message);
+                Sitecore.Diagnostics.Log.Error("Unable to convert bytearray to webpformat", e, typeof(WebPConverter));
             }
+            return null;
         }
     }
 }
