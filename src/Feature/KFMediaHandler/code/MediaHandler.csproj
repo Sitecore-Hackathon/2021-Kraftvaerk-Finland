@@ -6,12 +6,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2054DA40-C99A-4291-BF30-8720462B219F}</ProjectGuid>
+    <ProjectGuid>{967A44FC-9182-4258-9344-4B67FEEE8AF9}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SC2021KF.Feature.XRobotsTag</RootNamespace>
-    <AssemblyName>SC2021KF.Feature.XRobotsTag</AssemblyName>
+    <RootNamespace>SC2021KF.Feature.MediaHandler</RootNamespace>
+    <AssemblyName>SC2021KF.Feature.MediaHandler</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -228,7 +228,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pipelines\SitecoreMediaHandlerExtension.cs" />
+    <Compile Include="Extensions\MediaHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
