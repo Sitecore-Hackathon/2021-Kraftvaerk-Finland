@@ -5,13 +5,17 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{9AD796AE-F57F-4449-BDF0-4187159B8B6B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Company", "Company", "{F257D953-B574-489C-8A28-765F15871966}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company", "src\Project\Company\code\Company.csproj", "{267D5CC9-0F93-4ED4-B9DC-04FC8B3B9CB5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{4D066308-2D84-4395-AFC0-B0A18B59E4AA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{4363F609-2990-40D1-AFD7-F69B148A2FD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebPConverter", "WebPConverter", "{98BCBED9-D5EB-47B2-945F-7F6622E3F94E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XRobotsTag", "XRobotsTag", "{3FDD8707-BB0E-4A84-A299-6EB49FC2D08B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPConverter", "src\Feature\WebPConverter\code\WebPConverter.csproj", "{A941B0EE-6F1D-4B1C-AF40-7D337CA4ACFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XRobotsTag", "src\Feature\XRobotsTag\code\XRobotsTag.csproj", "{2054DA40-C99A-4291-BF30-8720462B219F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,19 +23,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{267D5CC9-0F93-4ED4-B9DC-04FC8B3B9CB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{267D5CC9-0F93-4ED4-B9DC-04FC8B3B9CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{267D5CC9-0F93-4ED4-B9DC-04FC8B3B9CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{267D5CC9-0F93-4ED4-B9DC-04FC8B3B9CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A941B0EE-6F1D-4B1C-AF40-7D337CA4ACFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A941B0EE-6F1D-4B1C-AF40-7D337CA4ACFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A941B0EE-6F1D-4B1C-AF40-7D337CA4ACFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A941B0EE-6F1D-4B1C-AF40-7D337CA4ACFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2054DA40-C99A-4291-BF30-8720462B219F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2054DA40-C99A-4291-BF30-8720462B219F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2054DA40-C99A-4291-BF30-8720462B219F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2054DA40-C99A-4291-BF30-8720462B219F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F257D953-B574-489C-8A28-765F15871966} = {9AD796AE-F57F-4449-BDF0-4187159B8B6B}
-		{267D5CC9-0F93-4ED4-B9DC-04FC8B3B9CB5} = {F257D953-B574-489C-8A28-765F15871966}
+		{98BCBED9-D5EB-47B2-945F-7F6622E3F94E} = {4D066308-2D84-4395-AFC0-B0A18B59E4AA}
+		{3FDD8707-BB0E-4A84-A299-6EB49FC2D08B} = {4D066308-2D84-4395-AFC0-B0A18B59E4AA}
+		{A941B0EE-6F1D-4B1C-AF40-7D337CA4ACFF} = {98BCBED9-D5EB-47B2-945F-7F6622E3F94E}
+		{2054DA40-C99A-4291-BF30-8720462B219F} = {3FDD8707-BB0E-4A84-A299-6EB49FC2D08B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB7419E4-1060-4DFA-AF42-268244A0CF3E}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Caching.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.ServiceBus.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.WindowsAzure.Storage.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.TransientFaultHandling.Configuration.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal
