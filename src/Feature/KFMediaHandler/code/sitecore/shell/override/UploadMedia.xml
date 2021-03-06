@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <UploadMedia>
+    <FormDialog Icon="Business/32x32/Paperclip.png" FormTarget="sitecoreattach" Enctype="multipart/form-data" Header="Upload File" 
+      Text="Select a file. When done click the Upload button." OKButton="Upload">
+
+      <Script Key="Upload">
+
+      
+        function submit() {
+        try {
+        document.forms[0].submit();
+        }
+        catch(e) {
+        scForm.invoke("ShowError");
+        }
+        }
+     </Script>
+
+      <CodeBeside Type="Sitecore.Shell.Applications.Media.UploadMedia.UploadMediaForm,Sitecore.Client"/>
+      <input id="ItemUri" name="ItemUri" type="hidden" value=""/>
+
+      <Border Padding="0px 0px 4px 0px">
+        <Literal Text="File name:" />
+      </Border>
+
+      <input id="File" name="File" type="file" style="width:100%" />
+      <div style="margin-top: 10px">
+          <span style="padding-right: 10px">Save as WebP fileformat</span>
+          <input type="checkbox" name="convertwebp" id="convertwebp" />
+      </div>
+    </FormDialog>
+  </UploadMedia>
+</control>

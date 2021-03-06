@@ -5,19 +5,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Sitecore.Data.Items;
+using Sitecore.Diagnostics;
 
 namespace SC2021KF.Feature.MediaHandler.Pipelines
 {
     public class MediaWebPHandler
     {
+        private readonly string convertwebp = "convertwebp";
         public void Process(UploadArgs args)
         {
-            //Database db = Sitecore.Context.ContentDatabase;
-            var str = args.Parameters.Get("convertwebp");
-            if(str == "on")
+            Assert.ArgumentNotNull((object)args, nameof(args));
+            if (HttpContext.Current.Request.Form[convertwebp] == "on") // Checkbox has been pressed to save as WebP format
             {
-                str = "yeah";
+                //TODO convert image to webp and save to media library
+
+
+
+                args.AbortPipeline();
+                if (!args.CloseDialogOnEnd)
+                    return;
+                string parameter = args.Parameters["message"];
+                string fileName = HttpUtility.UrlEncode(args.Properties["filename"] as string ?? string.Empty);
+                args.UiResponseHandlerEx.UploadDone(fileName, parameter);
+                // we abort pipeline because we handle the saving to media library as WebP
+                
             }
+            
             //Item webPMediaTemplate = db.GetItem("/sitecore/templates/jotain/jotain");
 
             //ID unversionedImage = new ID("");
