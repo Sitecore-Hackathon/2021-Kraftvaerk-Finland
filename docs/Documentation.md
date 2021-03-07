@@ -51,5 +51,6 @@ Also Upload File dialog contains new checkbox:
 3. Publish Feature/MediaHandler project to the website folder of local Sitecore
 4. Publish Project/Company project to the website folder local sitecore
 5. Install from src/SitecorePackages/KFMediaExtensionsModule.zip
+6. Go to /sitecore/templates/System/Media/Unversioned/File and publish to web database.
 
 KFMediaExtensionsModule.zip contains changes to Sitecore templates and static files.
