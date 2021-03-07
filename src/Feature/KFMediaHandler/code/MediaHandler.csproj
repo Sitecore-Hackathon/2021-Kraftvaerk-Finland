@@ -277,7 +277,7 @@
     <Compile Include="Services\WebpThumbnailService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\MediaWebPHandler.config" />
+    <Content Include="App_Config\Include\Feature\Feature.MediaHandler.config" />
     <Content Include="sitecore\shell\override\UploadMedia.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -287,6 +287,10 @@
     <ProjectReference Include="..\..\..\Foundation\MediaConverter\code\MediaConverter.csproj">
       <Project>{a941b0ee-6f1d-4b1c-af40-7d337ca4acff}</Project>
       <Name>MediaConverter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\XRobotsTag\code\XRobotsTag.csproj">
+      <Project>{14f27d32-02f3-465e-b495-267e4a5b13b8}</Project>
+      <Name>XRobotsTag</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

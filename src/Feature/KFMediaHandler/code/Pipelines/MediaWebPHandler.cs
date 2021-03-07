@@ -20,10 +20,6 @@ namespace SC2021KF.Feature.MediaHandler.Pipelines
     {
         private readonly string convertwebp = "convertwebp";
 
-        public void EndUpLoad()
-        {
-
-        }
         public void Process(UploadArgs args)
         {
             Database db = Sitecore.Context.ContentDatabase;
@@ -61,6 +57,7 @@ namespace SC2021KF.Feature.MediaHandler.Pipelines
                         Versioned = false,
                         AlternateText = filePathName
                     };
+
                     using (new SecurityDisabler())
                     {
                         var newItem = MediaManager.Creator.CreateFromStream(streamData, filePathName + ".webp", options);
@@ -69,7 +66,7 @@ namespace SC2021KF.Feature.MediaHandler.Pipelines
                     }
                     catch(Exception e)
                     {
-                        throw;
+                        Sitecore.Diagnostics.Log.Error("Error ocurred when creating a media item to webp format", e, typeof(MediaWebPHandler));
                     }
                 }
 

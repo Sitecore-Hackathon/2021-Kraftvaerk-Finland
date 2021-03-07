@@ -33,5 +33,14 @@ namespace SC2021KF.Foundation.MediaConverter.Services
             }
             return null;
         }
+
+        public static void ResizeImage(Stream mediaStream, Stream destinationStream, int width, int height, int quality)
+        {
+            using (ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
+            {
+                imageFactory.Load(mediaStream).Resize(new System.Drawing.Size(150, 150))
+                    .Format(new WebPFormat() { Quality = 85 }).Save(destinationStream);
+            }
+        }
     }
 }

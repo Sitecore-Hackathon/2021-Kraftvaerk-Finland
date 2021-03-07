@@ -32,7 +32,7 @@ Possibility to convert images to WebP format during upload will reduce the size 
 Editors cannot decide how much the image will be compressed.
 
 ## Installation
-Locate a zip file under 'Install' folder called "KFMediaExtensions.zip".
+Locate a zip file under 'Install' folder called "KFMediaExtensionsModule.zip".
 1. Login to sitecore
 2. Go to Desktop
 3. Lower left corner click Sitecore Logo -> Development Tools -> Installation Wizard. Alternatively you can go to from Launch Pad to Control Panel -> Install a package.
@@ -41,3 +41,15 @@ Locate a zip file under 'Install' folder called "KFMediaExtensions.zip".
 
 After installation all Sitecore Media Library files contains new section "SEO".
 ![SEO](images/SEO_pic.png)
+
+Also Upload File dialog contains new checkbox:
+![SEO](images/uploadfile.png)
+
+## How to deploy from repository
+1. Open solution into the Visual Studio 2019
+2. Restore Nuget Packages of whole solution
+3. Publish Feature/MediaHandler project to the website folder of local Sitecore
+4. Publish Project/Company project to the website folder local sitecore
+5. Install from src/SitecorePackages/KFMediaExtensionsModule.zip
+
+KFMediaExtensionsModule.zip contains changes to Sitecore templates and static files.

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Web;
+using SC2021KF.Foundation.XRobotsTag.Services;
 using Sitecore.Data;
 using Sitecore.Resources.Media;
 
@@ -15,7 +17,6 @@ namespace SC2021KF.Feature.MediaHandler.Extensions
             try
             {
                 var mediaRequest = MediaManager.ParseMediaRequest(context.Request);
-
                 if (mediaRequest != null)
                 {
                     var media = MediaManager.GetMedia(mediaRequest.MediaUri);
@@ -23,31 +24,23 @@ namespace SC2021KF.Feature.MediaHandler.Extensions
                     if (media != null)
                     {
                         var mediaItem = media.MediaData.MediaItem;
-                        string value = null;
+                        string value = XRobotsTagHeaderAppender.CheckXRobotsTagValues(mediaItem);
 
-                        if (mediaItem?.InnerItem?.Fields[NoIndexID]?.ToString() == "1")
-                        {
-                            value = "noindex";
-                        }
-
-                        if (mediaItem?.InnerItem?.Fields[NoFollowID]?.ToString() == "1")
-                        {
-                            value = value != null ? value + ", nofollow" : "nofollow";
-                        }
-
-                        if (value != null)
+                        if(!string.IsNullOrEmpty(value))
                         {
                             context.Response.AppendHeader(xRobotsTagHeader, value);
                         }
                     }
                 }
+
+                base.ProcessRequest(context);
             }
             catch(Exception e)
             {
                 Sitecore.Diagnostics.Log.Error("Unable to evaluate SEO fields for media item", e, typeof(MediaHandler));
             }
 
-            base.ProcessRequest(context);
+            
         }
     }
 }

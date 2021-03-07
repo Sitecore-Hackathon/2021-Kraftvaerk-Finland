@@ -26,7 +26,7 @@
 
       <input id="File" name="File" type="file" style="width:100%" />
       <div style="margin-top: 10px">
-          <span style="padding-right: 10px">Save as WebP fileformat</span>
+          <span style="padding-right: 10px">Save as WebP format</span>
           <input type="checkbox" name="convertwebp" id="convertwebp" />
       </div>
     </FormDialog>

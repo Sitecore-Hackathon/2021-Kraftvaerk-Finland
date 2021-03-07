@@ -1,5 +1,6 @@
 ﻿using ImageProcessor;
 using ImageProcessor.Plugins.WebP.Imaging.Formats;
+using SC2021KF.Foundation.MediaConverter.Services;
 using Sitecore.Resources.Media;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,12 @@ using System.Web;
 namespace SC2021KF.Feature.MediaHandler.Services
 {
     public class WebpThumbnailService : ThumbnailGenerator
-    {
-        public override MediaStream GetStream(MediaData mediaData, TransformationOptions options)
+    {   public override MediaStream GetStream(MediaData mediaData, TransformationOptions options)
         {
-            using(MemoryStream ms = new MemoryStream())
+            using (MemoryStream ms = new MemoryStream())
             {
                 Stream stream = new MemoryStream();
-                using(ImageFactory imageFactory = new ImageFactory(preserveExifData: false))
-                {
-                    imageFactory.Load(mediaData.MediaItem.GetMediaStream()).Resize(new System.Drawing.Size(150, 150))
-                        .Format(new WebPFormat() { Quality = 85 }).Save(stream);
-                }
+                WebPConverter.ResizeImage(mediaData.MediaItem.GetMediaStream(), stream, 150, 150, 85);
 
                 return new MediaStream(stream, this.Extension, mediaData.MediaItem);
             }
